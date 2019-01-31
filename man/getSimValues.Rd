@@ -7,14 +7,6 @@
 getSimValues(simFile, location, simOrigin, simVar, values)
 }
 \arguments{
-\item{simFile}{}
-
-\item{location}{}
-
-\item{simOrigin}{}
-
-\item{simVar}{}
-
 \item{values}{}
 }
 \value{

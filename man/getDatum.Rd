@@ -8,20 +8,6 @@ getDatum(obsFile, simFiles, location, simOrigins, simVars, obsOrigin,
   obsVar, attributes)
 }
 \arguments{
-\item{obsFile}{}
-
-\item{simFiles}{}
-
-\item{location}{}
-
-\item{simOrigins}{}
-
-\item{simVars}{}
-
-\item{obsOrigin}{}
-
-\item{obsVar}{}
-
 \item{attributes}{}
 }
 \value{

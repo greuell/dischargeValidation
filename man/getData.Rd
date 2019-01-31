@@ -9,20 +9,6 @@ getData(obsFile, simFiles, locations, simOrigins = rep("0001-01-01",
   obsOrigin = "1900-01-01", obsVar = "dis", attributes = c("all"))
 }
 \arguments{
-\item{obsFile}{}
-
-\item{simFiles}{}
-
-\item{locations}{}
-
-\item{simOrigins}{}
-
-\item{simVars}{}
-
-\item{obsOrigin}{}
-
-\item{obsVar}{}
-
 \item{attributes}{}
 }
 \value{
