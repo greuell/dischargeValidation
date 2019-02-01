@@ -1,3 +1,15 @@
+#' getLocationsFromBoundingBox
+#'
+#' Get station locations based on a bounding box
+#'
+#' @param obsFile
+#' @param boundingBox
+#' @param obsVar
+#'
+#' @return list of locations (lat/lon)
+#' @export
+#'
+#' @examples
 getLocationsFromBoundingBox <- function(obsFile,
                                         boundingBox,
                                         obsVar = "GRDC_number"){
