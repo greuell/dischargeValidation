@@ -1,13 +1,11 @@
-#' getLocationsFromSimulations
+#' Get the location of stations based on the mask of the observation file and the mask of the simulation file(s)
 #'
-#' Get station locations based on the simulation domain
+#' @param obsFile Path to the observation file.
+#' @param simFiles Path to the simulation file.
+#' @param simVar Simulation variable to be used as mask. If the variable is NA, it is assumed the cell does not contain data. Variable dimensions > 2 only use the first slice of redundand dimensions. Defaults to VIC discharge variable.
+#' @param obsVar Observation variable to be used as mask. If the variable is NA, it is assumed  the cell does not contain data. Variable dimensions > 2 only use the first slice of redundand dimensions. Defaults to GRDC_number.
 #'
-#' @param obsFile
-#' @param simFile
-#' @param simVar
-#' @param obsVar
-#'
-#' @return list of locations (lat/lon)
+#' @return List of station locations containing lon/lat values in a vector.
 #' @export
 #'
 #' @examples

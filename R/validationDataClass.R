@@ -1,20 +1,10 @@
-#' validationDataClass
-#' 
-#' validationData class
-#'
-#' @return
-#' @export
-#'
-#' @examples
 validationDataClass = function() {
   return("validationData")
 }
 
-#' isValidationData
-#' 
-#' check if valid validationData class
+#' Checks wether an object is of type "validationData"
 #'
-#' @param x 
+#' @param x The object
 #'
 #' @return  true or false
 #' @export

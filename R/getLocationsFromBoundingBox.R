@@ -1,12 +1,10 @@
-#' getLocationsFromBoundingBox
+#' Get the location of stations based on the mask of the observation file and a bounding box
 #'
-#' Get station locations based on a bounding box
+#' @param obsFile Path to the observation file.
+#' @param boundingBox Vector containing minimum longitude, maximum longitude, minimum latitude, maximum latitude (in that order)
+#' @param obsVar bservation variable to be used as mask. If the variable is NA, it is assumed  the cell does not contain data. Variable dimensions > 2 only use the first slice of redundand dimensions. Defaults to GRDC_number.
 #'
-#' @param obsFile
-#' @param boundingBox
-#' @param obsVar
-#'
-#' @return list of locations (lat/lon)
+#' @return List of station locations containing lon/lat values in a vector.
 #' @export
 #'
 #' @examples

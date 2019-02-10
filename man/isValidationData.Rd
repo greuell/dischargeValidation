@@ -2,16 +2,16 @@
 % Please edit documentation in R/validationDataClass.R
 \name{isValidationData}
 \alias{isValidationData}
-\title{isValidationData}
+\title{Checks wether an object is of type "validationData"}
 \usage{
 isValidationData(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{The object}
 }
 \value{
 true or false
 }
 \description{
-check if valid validationData class
+Checks wether an object is of type "validationData"
 }

@@ -2,18 +2,35 @@
 % Please edit documentation in R/getData.R
 \name{getData}
 \alias{getData}
-\title{getData}
+\title{Get validation data object for further analysis}
 \usage{
-getData(obsFile, simFiles, locations, simOrigins = rep("0001-01-01",
+getData(obsFile, simFiles, locations, simOrigins = rep("0000-12-30",
   length(simFiles)), simVars = rep("OUT_DISCHARGE", length(simFiles)),
-  obsOrigin = "1900-01-01", obsVar = "dis", attributes = c("all"))
+  simSkips = rep(0, length(simFiles)), obsOrigin = "1900-01-01",
+  obsVar = "dis", attVars = "all")
 }
 \arguments{
-\item{attributes}{}
+\item{obsFile}{Path to the observation file.}
+
+\item{simFiles}{Path to the simulation file(s). This can also be an empty vector.}
+
+\item{locations}{List of station locations containing lon/lat values in a vector.}
+
+\item{simOrigins}{Date origin of the simulation(s). A value per simulation file is required. Defaults to VIC origin.}
+
+\item{simVars}{Variable name of the simulation(s) to retreive. A value per simulation file is required. Defaults to VIC discharge variable.}
+
+\item{simSkips}{Number of months to skip for the simulation(s). A value per simulation file is required. Defaults to 0.}
+
+\item{obsOrigin}{Date origin of the observations.}
+
+\item{obsVar}{Variable name of the observations to retreive.}
+
+\item{attVars}{Variable name of attribute(s) to retrieve. If "all" is used, all attributes are retrieved. A variable is recognized as an attribute if it has only lon & lat dimensions.}
 }
 \value{
-list containing validationData classes for each location
+An object containing values for nloc, nsim, ntime, time, observations, simulations and the requested attributes
 }
 \description{
-Get observation and simulation data and attributes at specified locations
+Get validation data object for further analysis
 }
