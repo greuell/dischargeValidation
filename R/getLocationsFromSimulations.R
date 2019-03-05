@@ -9,6 +9,7 @@
 #' @export
 #'
 #' @examples
+#' @import ncdf4
 getLocationsFromSimulations <- function(obsFile,
                                         simFile,
                                         simVar = "OUT_DISCHARGE",

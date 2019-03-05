@@ -12,10 +12,29 @@ getAttributes <- function(file,
     variable = variables[iVar]
 
     nc = nc_open(file)
-
     x = which.min(abs(nc$dim$lon$vals - lon))
     y = which.min(abs(nc$dim$lat$vals - lat))
-    value = ncvar_get(nc = nc, varid = variable, start = c(x, y), count = c(1, 1))
+
+    for(iVar2 in 1:nc$nvars){
+      if(nc$var[[iVar2]]$name == variable){
+        variableStart = rep(1, nc$var[[iVar2]]$ndims)
+        variableCount = rep(-1, nc$var[[iVar2]]$ndims)
+        if(nc$var[[iVar2]]$prec == "char"){
+          variableStart[2] = x
+          variableStart[3] = y
+          variableCount[2] = 1
+          variableCount[3] = 1
+        } else {
+          variableStart[1] = x
+          variableStart[2] = y
+          variableCount[1] = 1
+          variableCount[2] = 1
+        }
+        break
+      }
+    }
+
+    value = ncvar_get(nc = nc, varid = variable, start = variableStart, count = variableCount)
 
     nc_close(nc)
 

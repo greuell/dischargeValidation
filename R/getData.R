@@ -8,11 +8,12 @@
 #' @param simSkips Number of months to skip for the simulation(s). A value per simulation file is required. Defaults to 0.
 #' @param obsOrigin Date origin of the observations.
 #' @param obsVar Variable name of the observations to retreive.
-#' @param attVars Variable name of attribute(s) to retrieve. If "all" is used, all attributes are retrieved. A variable is recognized as an attribute if it has only lon & lat dimensions.
+#' @param attVars Variable name of attribute(s) to retrieve. If "all" is used, all attributes are retrieved. A variable is recognized as an attribute if it has only lon & lat dimensions (characters can have three dimensions to form strings).
 #'
 #' @return An object containing values for nloc, nsim, ntime, time, observations, simulations and the requested attributes
 #' @export
 #'
+#' @import ncdf4
 #' @examples
 getData <- function(obsFile,
                     simFiles,
@@ -37,10 +38,14 @@ getData <- function(obsFile,
 
     nc = nc_open(obsFile)
     for(var in nc$var){
-      if(var$ndims == 2 &&
-         var$dim[[1]]$name == nc$dim$lon$name &&
-         var$dim[[2]]$name == nc$dim$lat$name){
+      if((var$prec == "char" && var$ndims == 3) &&
+         var$dim[[2]]$name == nc$dim$lon$name &&
+         var$dim[[3]]$name == nc$dim$lat$name){
         attVars = c(attVars, var$name)
+      } else if(var$ndims == 2 &&
+        var$dim[[1]]$name == nc$dim$lon$name &&
+        var$dim[[2]]$name == nc$dim$lat$name){
+          attVars = c(attVars, var$name)
       }
     }
     nc_close(nc)
@@ -62,7 +67,7 @@ getData <- function(obsFile,
                  location[1], " N ", location[2], " E ",
                  "(", iLoc, " of ", length(locations), ")"))
 
-    # Load observation values
+    # Load observation data
     observations[iLoc,1:ntime] = getValues(file = obsFile,
                                                  location = location,
                                                  variable = obsVar,
@@ -82,6 +87,7 @@ getData <- function(obsFile,
                                                        time = time)
     }
 
+    # Load attribute data
     attributes.array[iLoc,1:natt] = getAttributes(file = obsFile,
                                                    location = location,
                                                    variable = attVars)

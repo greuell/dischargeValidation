@@ -8,6 +8,7 @@
 #' @export
 #'
 #' @examples
+#' @import ncdf4
 getLocationsFromBoundingBox <- function(obsFile,
                                         boundingBox,
                                         obsVar = "GRDC_number"){

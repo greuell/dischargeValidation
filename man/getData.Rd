@@ -26,7 +26,7 @@ getData(obsFile, simFiles, locations, simOrigins = rep("0000-12-30",
 
 \item{obsVar}{Variable name of the observations to retreive.}
 
-\item{attVars}{Variable name of attribute(s) to retrieve. If "all" is used, all attributes are retrieved. A variable is recognized as an attribute if it has only lon & lat dimensions.}
+\item{attVars}{Variable name of attribute(s) to retrieve. If "all" is used, all attributes are retrieved. A variable is recognized as an attribute if it has only lon & lat dimensions (characters can have three dimensions to form strings).}
 }
 \value{
 An object containing values for nloc, nsim, ntime, time, observations, simulations and the requested attributes

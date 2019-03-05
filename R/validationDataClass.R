@@ -11,7 +11,7 @@ validationDataClass = function() {
 #'
 #' @examples
 isValidationData = function(x) {
-  if (class(x) == class.validation.data()) {
+  if (class(x) == validationDataClass()) {
     return(TRUE)
   } else {
     return(FALSE)
